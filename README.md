@@ -76,6 +76,7 @@ What It _Will_ Do Soon
 --------------------
 
 Here's a nice, shallow backlog:
+
  *   Output "Background" section (only if background steps generate steps).
  *   Handle scenario outlines.
  *   Handle step tables (just pass 'em on wholesale to the generated step).
