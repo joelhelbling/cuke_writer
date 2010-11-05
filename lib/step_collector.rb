@@ -1,17 +1,23 @@
 class StepCollector
-  @@steps = []
+  @@scenarios = []
+
+  def add_scenario(scenario, indent=2)
+    spaces = "\n"
+    indent.times { spaces << " " }
+    @@scenarios << [spaces + scenario]
+  end
 
   def add(step, indent=4)
     spaces = ""
     indent.times { spaces << " " }
-    @@steps << spaces + step
+    @@scenarios.last << spaces + step
   end
 
   def steps
-    @@steps
+    @@scenarios.select { |scenario| scenario.size > 1 }.flatten
   end
 
   def reset
-    @@steps = []
+    @@scenarios = []
   end
 end

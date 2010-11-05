@@ -1,7 +1,7 @@
 require 'date'
 require File.dirname(__FILE__) + '/../../lib/serial_number.rb'
 
-describe SerialNumber do
+describe 'SerialNumber' do
   before do
     @time_piece = DateTime.now.strftime('%Y%m%d%H%M')
   end
