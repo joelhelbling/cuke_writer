@@ -84,7 +84,7 @@ Here's a nice, shallow backlog:
  *   Handle scenario outlines.
  *   Handle step tables (just pass 'em on wholesale to the generated step).
  *   Need a test which actually runs generated features to ensure they are kopasetic.
- *   Need a special tag (e.g. @cw) which is appended to each generated feature.  This will allow
+ *   Need a special tag (e.g. @cw) which is added to each generated feature.  This will allow
      us to (re)run the main features while omitting the generated features and vice versa.
  *   Generate a nice new rake task for each serialized batch of generated features.
  *   Create a nice rake task which cleans up old batches of generated features.
