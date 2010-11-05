@@ -72,6 +72,9 @@ or a Windows scheduled task.  It could be scheduled for five minutes from now, o
 now.  Or it could be run manually whenever you darn well please.  So we're leaving the "when" and 
 "how" details in your hands.
 
+It also won't generate the step definitions you'll need to run your generated features.  You'll want
+to write those yourself since they're so important!
+
 What It _Will_ Do Soon
 --------------------
 
