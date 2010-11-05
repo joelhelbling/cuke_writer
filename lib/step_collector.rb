@@ -1,8 +1,10 @@
 class StepCollector
   @@steps = []
 
-  def add(step)
-    @@steps << step
+  def add(step, indent=4)
+    spaces = ""
+    indent.times { spaces << " " }
+    @@steps << spaces + step
   end
 
   def steps

@@ -35,5 +35,15 @@ Feature:
       """
     And the following directories should exist:
       | features/generated_features/P123456 |
-    And the file "features/generated_features/P123456/cuke_writer_test.feature" should contain "Given I do that"
+    And the following files should exist:
+      | features/generated_features/P123456/cuke_writer_test.cw.feature |
+    And the file "features/generated_features/P123456/cuke_writer_test.cw.feature" should contain exactly:
+      """
+      Feature: Testing out CukeWriter
+        [generated from features/cuke_writer_test.feature]
 
+        Scenario: A really basic scenario
+          [from features/cuke_writer_test.feature:3]
+          Given I do that
+
+      """
