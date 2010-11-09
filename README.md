@@ -48,6 +48,10 @@ If a scenario did not have any collected steps, it will not be added to its corr
 generated feature.  If a feature did not have any generated scenarios, it will not generate
 a CukeWriter feature.
 
+_This just in!  If your *generating* feature has a Background section which has steps which
+generate steps, then the *generated* feature will also have a Background section which 
+contains those generated background steps._
+
 Why Would You Want This?
 ------------------------
 
@@ -80,7 +84,7 @@ What It _Will_ Do Soon
 
 Here's a nice, shallow backlog:
 
- *   Output "Background" section (only if background steps generate steps).
+ *   --Output "Background" section (only if background steps generate steps).-- [DONE]
  *   Handle scenario outlines.
  *   Handle step tables (just pass 'em on wholesale to the generated step).
  *   Need a test which actually runs generated features to ensure they are kopasetic.
