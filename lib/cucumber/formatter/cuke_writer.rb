@@ -35,6 +35,10 @@ module Cucumber
         @step_collector.add_scenario "#{keyword}: #{name}\n    [from #{file_colon_line}]", 2
       end
 
+      def background_name(keyword, name, file_colon_line, source_indent)
+        @step_collector.add_scenario "#{keyword}: #{name}\n    [from #{file_colon_line}]", 2
+      end
+
       private
 
       def output_directory
