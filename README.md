@@ -66,6 +66,54 @@ with the serial number of that particular run, so that when you run the generate
 will test the specific set of emails which were generated in the corresponding execution of the
 main features.
 
+Wait, What About Scenario Outlines?
+-----------------------------
+
+So glad you asked.  When CukeWriter encounters a scenario outline/example table in your 
+feature, it generates a separate regular ole Scenario:&trade; for each row in your examples
+table, and references the line number of the corresponding row.
+
+Early on, I figured I'd have CukeWriter just output a corresponding Scenario Outline:&trade;,
+but as I thought about it, I realized that to assume the steps you generate from one example
+row could very well be different from the steps generated from another example row.  For
+example:
+
+    Feature: We have a Scenario Outline
+
+      Scenario Outline: This is it
+        Given I see "<rock_star>"
+
+      Examples:
+        | rock_star  |
+        | Ringo      |
+        | Sting      |
+        | Ted Nugent |
+
+And suppose you wanted this to generate different steps for different stars?  Here's an
+example of what we _can_ do:
+
+    Feature: We have a Scenario Outline
+      [generated from features/rock_star_recognition.feature]
+
+      Scenario: This is it
+        [from features/rock_star_recognition.feature:8]
+        Given "Ringo" sees me
+        Then I say "Cheers!"
+
+      Scenario: This is it
+        [from features/rock_star_recognition.feature:9]
+        Given Sting is in an elevator
+        When I say "De do do do, de da da da!"
+        Then Sting says "I just remembered, I've got some business on 85."
+        
+      Scenario: This is it
+        [from features/rock_star_recognition.feature:10]
+        Given Ted Nugent sees me
+        Then I run the other way
+
+All this unique handling of each brush with greatness becomes impossible if we just generate
+a single scenario outline.
+
 What It Won't Do
 ----------------
 
@@ -73,7 +121,7 @@ CukeWriter will not kick off the generated batch of cucumber tests automatically
 the mechanism for doing that will likely be different depending on the requirements of your project
 and operating environment in which CukeWriter is used:  it could be triggered by cron, your CI server,
 or a Windows scheduled task.  It could be scheduled for five minutes from now, or fifty years from
-now.  Or it could be run manually whenever you darn well please.  So we're leaving the "when" and 
+now.  Or it could be run manually whenever you darn well please.  So let's leave the "when" and 
 "how" details in your hands.
 
 It also won't generate the step definitions you'll need to run your generated features.  You'll want
@@ -84,8 +132,8 @@ What It _Will_ Do Soon
 
 Here's a nice, shallow backlog:
 
- *   --Output "Background" section (only if background steps generate steps).-- [DONE]
- *   Handle scenario outlines.
+ *   _Output "Background" section (only if background steps generate steps)_ ...[DONE]
+ *   _Handle scenario outlines._ ...[DONE]
  *   Handle step tables (just pass 'em on wholesale to the generated step).
  *   Need a test which actually runs generated features to ensure they are kopasetic.
  *   Need a special tag (e.g. @cw) which is added to each generated feature.  This will allow
