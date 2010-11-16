@@ -71,14 +71,17 @@ Wait, What About Scenario Outlines?
 
 So glad you asked.  When CukeWriter encounters a scenario outline/example table in your 
 feature, it generates a separate regular ole Scenario:&trade; for each row in your examples
-table, and references the line number of the corresponding row.
+table, and references the line number of the corresponding example table row.
 
 Early on, I figured I'd have CukeWriter just output a corresponding Scenario Outline:&trade;,
 but as I thought about it, I realized that to assume the steps you generate from one example
 row could very well be different from the steps generated from another example row.  For
 example:
 
-    Feature: We have a Scenario Outline
+    Feature: As a music fan,
+      In order to make the most of a rock star spotting,
+      I want to adapt to each rock star differently
+      So that I can get an autograph
 
       Scenario Outline: This is it
         Given I see "<rock_star>"
@@ -92,20 +95,23 @@ example:
 And suppose you wanted this to generate different steps for different stars?  Here's an
 example of what we _can_ do:
 
-    Feature: We have a Scenario Outline
+    Feature: As a music fan,
+      In order to make the most of a rock star spotting,
+      I want to adapt to each rock star differently
+      So that I can get an autograph
       [generated from features/rock_star_recognition.feature]
-
+      
       Scenario: This is it
         [from features/rock_star_recognition.feature:8]
         Given "Ringo" sees me
         Then I say "Cheers!"
-
+      
       Scenario: This is it
         [from features/rock_star_recognition.feature:9]
         Given Sting is in an elevator
         When I say "De do do do, de da da da!"
         Then Sting says "I just remembered, I've got some business on 85."
-        
+      
       Scenario: This is it
         [from features/rock_star_recognition.feature:10]
         Given Ted Nugent sees me
