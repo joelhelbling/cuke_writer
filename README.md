@@ -120,8 +120,42 @@ example of what we _can_ do:
 All this unique handling of each brush with greatness becomes impossible if we just generate
 a single scenario outline.
 
-What It Won't Do
-----------------
+Step Tables
+-----------
+
+Sometimes you just want to have CukeWriter generate a step which has a table attached to it.  And
+that's ok.  `StepCollector#add` now accepts a hash as an optional second parameter, and in that
+hash you can send over a `:table` (in the form of a `Cucumber::Ast::Table`).  Behold:
+
+    Given I have a step with the following table:
+      | THAT  | THOSE     |
+      | thing | things    |
+      | there | overthere |
+
+...and supposing your step defintion did this:
+
+    Given /^I have a step with the following table:$/ |table|
+      @step_collector.add "Then this table goes here:", {:table => table}
+    end
+
+...then your generated cuke would have this step (and attendant table):
+
+    Then this table goes here:
+      | THAT  | THOSE     |
+      | thing | things    |
+      | there | overthere |
+
+Of course, you don't have to just pass a table straight through.  You can certainly just generate
+your own table, e.g.
+
+    table = Cucumber::Ast::Table.new [['GOO', 'GAH'], ['boo', 'bah']]
+
+Now that you can generate step tables, why, go forth, and multiply!
+
+What CukeWriter Won't Do
+------------------------
+
+_I would do anything for love, but I won't do that. --Meatloaf_
 
 CukeWriter will not kick off the generated batch of cucumber tests automatically.  This is because
 the mechanism for doing that will likely be different depending on the requirements of your project
@@ -130,8 +164,8 @@ or a Windows scheduled task.  It could be scheduled for five minutes from now, o
 now.  Or it could be run manually whenever you darn well please.  So let's leave the "when" and 
 "how" details in your hands.
 
-It also won't generate the step definitions you'll need to run your generated features.  You'll want
-to write those yourself since they're so important!
+It also won't generate the step definitions you'll need for running your generated features.  You'll
+want to write those yourself since they're so important!
 
 What It _Will_ Do Soon
 --------------------
@@ -139,8 +173,8 @@ What It _Will_ Do Soon
 Here's a nice, shallow backlog:
 
  *   _Output "Background" section (only if background steps generate steps)_ ...[DONE]
- *   _Handle scenario outlines._ ...[DONE]
- *   Handle step tables (just pass 'em on wholesale to the generated step).
+ *   _Handle scenario outlines_ ...[DONE]
+ *   _Handle step tables_ ...[DONE]
  *   Need a test which actually runs generated features to ensure they are kopasetic.
  *   Need a special tag (e.g. @cw) which is added to each generated feature.  This will allow
      us to (re)run the main features while omitting the generated features and vice versa.

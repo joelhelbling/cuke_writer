@@ -37,12 +37,12 @@ module Cucumber
         if keyword == 'Scenario Outline'
           @scenario_outline_info = {:name => name, :file => file_colon_line.gsub(/:\d+$/, '')}
         else
-          @step_collector.add_scenario "#{keyword}: #{name}\n    [from #{file_colon_line}]", 2
+          @step_collector.add_scenario "#{keyword}: #{name}\n    [from #{file_colon_line}]", {:indent => 2}
         end
       end
 
       def background_name(keyword, name, file_colon_line, source_indent)
-        @step_collector.add_scenario "#{keyword}: #{name}\n    [from #{file_colon_line}]", 2
+        @step_collector.add_scenario "#{keyword}: #{name}\n    [from #{file_colon_line}]", {:indent => 2}
       end
 
       def examples_name(*args)
@@ -56,7 +56,7 @@ module Cucumber
 
       def before_table_row(table_row)
         if @currently_in_examples_table
-          @step_collector.add_scenario("Scenario: #{@scenario_outline_info[:name]}\n    [from #{@scenario_outline_info[:file]}:#{table_row.line}]", 2)
+          @step_collector.add_scenario("Scenario: #{@scenario_outline_info[:name]}\n    [from #{@scenario_outline_info[:file]}:#{table_row.line}]", {:indent => 2})
         end
       end
 
