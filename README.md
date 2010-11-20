@@ -175,9 +175,11 @@ Here's a nice, shallow backlog:
  *   _Output "Background" section (only if background steps generate steps)_ ...[DONE]
  *   _Handle scenario outlines_ ...[DONE]
  *   _Handle step tables_ ...[DONE]
- *   Need a test which actually runs generated features to ensure they are kopasetic.
+ *   _Need a test which actually runs generated features to ensure they are kopasetic._ ...[DONE]
  *   Need a special tag (e.g. @cw) which is added to each generated feature.  This will allow
      us to (re)run the main features while omitting the generated features and vice versa.
+ *   Have CW glance at cucumber.yml and suggest a couple of changes for working with/around
+     the @cw tag (unluss cucumber.yml already does so).
  *   Generate a nice new rake task for each serialized batch of generated features.
  *   Create a nice rake task which cleans up old batches of generated features.
  *   Turn CukeWriter into a gem.

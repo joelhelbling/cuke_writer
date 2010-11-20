@@ -27,7 +27,6 @@ Feature: features with simple, straightforward scenarios
           Given I do this
       """
     When I run "cucumber features/cuke_writer_test.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
-    Then the output should contain "1 scenario"
     Then it should pass with: 
       """
       1 scenario (1 passed)
