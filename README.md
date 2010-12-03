@@ -152,6 +152,35 @@ your own table, e.g.
 
 Now that you can generate step tables, why, go forth, and multiply!
 
+Keep 'Em Seperated
+------------------
+
+If you're using CukeWriter to solve some kind of temporal distortion problem (a.k.a. an asynchronous
+problem) then chances good that when you want to run the features that use CukeWriter to write 
+features, you _don't_ want to run the features that CukeWriter has generated...and vice versa.
+Accordingly, CukeWriter puts a "@cuke_writer" tag on each feature that it generates.  This makes it
+easy to tell cucumber which kind of Cuke is in season now.  When it's time to plant nice neat rows
+of burpless seedlings, you can make Cucumber skip any CukeWriter-generated cukes with this:
+
+    cucumber --tags ~@cuke_writer
+
+And when it's time to turn our attention to the nice new crop of CukeWriter-written cukes, you can
+load 'em up for the county fair with this:
+
+    cucumber --tags @cuke_writer
+
+Thus CukeWriter uses Cucumber tags to heal rifts in the time-space continuum, which is pretty
+freakin' sweet.
+
+Suggestion: you might be able to simplify your personal journey by putting all this `--tags ~@cuke_writer`
+and `--tags @cuke_writer` stuff into your cucumber.yml.  For instance:
+
+    default: --tags ~@cuke_writer     # avoid running CW-generated cukes
+    cuke_writer: --tags @cuke_writer  # run *only* CW-generated cukes
+
+This seems like a very helpful suggestion if I do say so myself.  Someday I will make CukeWriter
+glance at your cucumber.yml and suggest this very same suggestion which I have suggested.
+
 What CukeWriter Won't Do
 ------------------------
 
@@ -176,8 +205,8 @@ Here's a nice, shallow backlog:
  *   _Handle scenario outlines_ ...[DONE]
  *   _Handle step tables_ ...[DONE]
  *   _Need a test which actually runs generated features to ensure they are kopasetic._ ...[DONE]
- *   Need a special tag (e.g. @cw) which is added to each generated feature.  This will allow
-     us to (re)run the main features while omitting the generated features and vice versa.
+ *   _Need a special tag (e.g. @cuke_writer) which is added to each generated feature.  This will allow
+     us to (re)run the main features while omitting the generated features and vice versa._ ...[DONE]
  *   Have CW glance at cucumber.yml and suggest a couple of changes for working with/around
      the @cw tag (unluss cucumber.yml already does so).
  *   Generate a nice new rake task for each serialized batch of generated features.

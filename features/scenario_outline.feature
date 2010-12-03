@@ -47,6 +47,7 @@ Feature: Features which have scenario outlines should generate a separate scenar
     And the file "features/generated_features/P123456/has_a_scenario_outline.cw.feature" should not contain "Scenarios:"
     But the file "features/generated_features/P123456/has_a_scenario_outline.cw.feature" should contain exactly:
       """
+      @cuke_writer
       Feature: Messin' wit' scenario outlines
         [generated from features/has_a_scenario_outline.feature]
 

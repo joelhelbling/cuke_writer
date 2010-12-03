@@ -26,7 +26,7 @@ module Cucumber
         if @step_collector.steps.size > 0
           FileUtils.mkdir_p(output_directory) unless File.directory?(output_directory)
           File.open("#{output_directory}/#{feature.filename}", 'w') do |fh|
-            fh.write "Feature: #{feature.name}\n  [generated from #{feature.file}]\n"
+            fh.write "@cuke_writer\nFeature: #{feature.name}\n  [generated from #{feature.file}]\n"
             fh.write @step_collector.steps.join("\n") + "\n"
           end
         end

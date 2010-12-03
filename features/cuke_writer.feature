@@ -38,6 +38,7 @@ Feature: features with simple, straightforward scenarios
       | features/generated_features/P123456/cuke_writer_test.cw.feature |
     And the file "features/generated_features/P123456/cuke_writer_test.cw.feature" should contain exactly:
       """
+      @cuke_writer
       Feature: Testing out CukeWriter
         [generated from features/cuke_writer_test.feature]
 
@@ -69,6 +70,7 @@ Feature: features with simple, straightforward scenarios
     When I run "cucumber features/suppress_empty_scenarios.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
     Then the file "features/generated_features/P123456/suppress_empty_scenarios.cw.feature" should contain exactly:
       """
+      @cuke_writer
       Feature: Testing out CukeWriter
         [generated from features/suppress_empty_scenarios.feature]
 

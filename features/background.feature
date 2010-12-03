@@ -53,6 +53,7 @@ Feature: As a tester, I want to generate steps from steps which are part of a ba
     When I run "cucumber features/generate_sans_background.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
     Then the file "features/generated_features/P123456/generate_sans_background.cw.feature" should contain exactly:
       """
+      @cuke_writer
       Feature: 
         [generated from features/generate_sans_background.feature]
 

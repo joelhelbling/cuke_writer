@@ -33,6 +33,7 @@ Feature: a step table may be passed to the step_collector to be
     When I run "cucumber features/has_a_step_table.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
     Then the file "features/generated_features/P123456/has_a_step_table.cw.feature" should contain exactly:
       """
+      @cuke_writer
       Feature: Messin' wit step tables!
         [generated from features/has_a_step_table.feature]
 
