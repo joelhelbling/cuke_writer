@@ -179,7 +179,9 @@ and `--tags @cuke_writer` stuff into your cucumber.yml.  For instance:
     cuke_writer: --tags @cuke_writer  # run *only* CW-generated cukes
 
 This seems like a very helpful suggestion if I do say so myself.  Someday I will make CukeWriter
-glance at your cucumber.yml and suggest this very same suggestion which I have suggested.
+glance at your cucumber.yml and suggest this very same suggestion which I have suggested.  Unless, of
+course, you have already followed this suggestion, in which case CukeWriter will wink at you and 
+smile knowingly, like this: ;)
 
 What CukeWriter Won't Do
 ------------------------
