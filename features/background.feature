@@ -2,14 +2,7 @@
 Feature: As a tester, I want to generate steps from steps which are part of a background.
 
   Background:
-    Given a file named "features/support/env.rb" with:
-      """
-      require File.dirname(__FILE__) + '/../../../../lib/cucumber/formatter/cuke_writer'
-      require File.dirname(__FILE__) + '/../../../../lib/step_collector'
-      require File.dirname(__FILE__) + '/../../../../lib/serial_number'
-
-      SerialNumber.number = "P123456"
-      """
+    Given a typical support/env.rb file
     And a file named "features/step_definitions/steps.rb" with:
       """
       Given /^I don't do much$/ do
@@ -33,7 +26,7 @@ Feature: As a tester, I want to generate steps from steps which are part of a ba
         Scenario: But the scenario does generate steps
           Given I add a step "foo"
       """
-    When I run "cucumber features/generate_sans_background.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
+    When I run the "generate_sans_background" feature
     Then the file "features/generated_features/P123456/generate_sans_background.cw.feature" should contain "Feature:"
     And the file "features/generated_features/P123456/generate_sans_background.cw.feature" should contain "Scenario:"
     But the file "features/generated_features/P123456/generate_sans_background.cw.feature" should not contain "Background:"
@@ -50,7 +43,7 @@ Feature: As a tester, I want to generate steps from steps which are part of a ba
         Scenario: And the scenario also generates steps
           Given I add a step "foo"
       """
-    When I run "cucumber features/generate_sans_background.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
+    When I run the "generate_sans_background" feature
     Then the file "features/generated_features/P123456/generate_sans_background.cw.feature" should contain exactly:
       """
       @cuke_writer

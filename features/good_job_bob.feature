@@ -5,14 +5,7 @@ Feature: Here is a feature (let's call him "Bob") who uses aruba
   Great job, Bob!
 
   Background:
-    Given a file named "features/support/env.rb" with:
-      """
-      require File.dirname(__FILE__) + '/../../../../lib/cucumber/formatter/cuke_writer'
-      require File.dirname(__FILE__) + '/../../../../lib/step_collector'
-      require File.dirname(__FILE__) + '/../../../../lib/serial_number'
-
-      SerialNumber.number = "P123456"
-      """
+    Given a typical support/env.rb file
     And a file named "features/step_definitions/steps.rb" with:
       """
       Given /^I wrote this with aruba$/ do
@@ -33,7 +26,7 @@ Feature: Here is a feature (let's call him "Bob") who uses aruba
           Given I wrote this with aruba
 
       """
-    When I run "cucumber features/bobs_end_to_end.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
+    When I run the "bobs_end_to_end" feature
     And I run "cucumber features/generated_features/P123456/bobs_end_to_end.cw.feature --no-color --no-source -r features/"
     Then it should pass with: 
       """

@@ -4,14 +4,7 @@ Feature: Features which have scenario outlines should generate a separate scenar
   examples table).
 
   Background:
-    Given a file named "features/support/env.rb" with:
-      """
-      require File.dirname(__FILE__) + '/../../../../lib/cucumber/formatter/cuke_writer'
-      require File.dirname(__FILE__) + '/../../../../lib/step_collector'
-      require File.dirname(__FILE__) + '/../../../../lib/serial_number'
-
-      SerialNumber.number = "P123456"
-      """
+    Given a typical support/env.rb file
     And a file named "features/step_definitions/steps.rb" with:
       """
       Given /^I don't do much$/ do
@@ -41,7 +34,7 @@ Feature: Features which have scenario outlines should generate a separate scenar
         Scenario: Another scenario just to prove there are no side effects
           Given I add a step "have fun!"
       """
-    When I run "cucumber features/has_a_scenario_outline.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
+    When I run the "has_a_scenario_outline" feature
     Then the file "features/generated_features/P123456/has_a_scenario_outline.cw.feature" should not contain "Scenario Outline:"
     And the file "features/generated_features/P123456/has_a_scenario_outline.cw.feature" should not contain "Examples:"
     And the file "features/generated_features/P123456/has_a_scenario_outline.cw.feature" should not contain "Scenarios:"

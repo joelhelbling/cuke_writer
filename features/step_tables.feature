@@ -3,14 +3,7 @@ Feature: a step table may be passed to the step_collector to be
   appended after the corresponding step.
 
   Background:
-    Given a file named "features/support/env.rb" with:
-      """
-      require File.dirname(__FILE__) + '/../../../../lib/cucumber/formatter/cuke_writer'
-      require File.dirname(__FILE__) + '/../../../../lib/step_collector'
-      require File.dirname(__FILE__) + '/../../../../lib/serial_number'
-
-      SerialNumber.number = "P123456"
-      """
+    Given a typical support/env.rb file
     And a file named "features/step_definitions/steps.rb" with:
       """
       Given /^I do "([^"]*)" with:$/ do |step_tag, table|
@@ -30,7 +23,7 @@ Feature: a step table may be passed to the step_collector to be
             | thing | things    |
             | there | overthere |
       """
-    When I run "cucumber features/has_a_step_table.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
+    When I run the "has_a_step_table" feature
     Then the file "features/generated_features/P123456/has_a_step_table.cw.feature" should contain exactly:
       """
       @cuke_writer

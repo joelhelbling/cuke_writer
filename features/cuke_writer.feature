@@ -2,14 +2,7 @@
 Feature: features with simple, straightforward scenarios
 
   Background:
-    Given a file named "features/support/env.rb" with:
-      """
-      require File.dirname(__FILE__) + '/../../../../lib/cucumber/formatter/cuke_writer'
-      require File.dirname(__FILE__) + '/../../../../lib/step_collector'
-      require File.dirname(__FILE__) + '/../../../../lib/serial_number'
-
-      SerialNumber.number = "P123456"
-      """
+    Given a typical support/env.rb file
     And a file named "features/step_definitions/steps.rb" with:
       """
       Given /^I do this$/ do
@@ -26,7 +19,7 @@ Feature: features with simple, straightforward scenarios
         Scenario: A really basic scenario
           Given I do this
       """
-    When I run "cucumber features/cuke_writer_test.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
+    When I run the "cuke_writer_test" feature
     Then it should pass with: 
       """
       1 scenario (1 passed)
@@ -67,7 +60,7 @@ Feature: features with simple, straightforward scenarios
       end
 
       """
-    When I run "cucumber features/suppress_empty_scenarios.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
+    When I run the "suppress_empty_scenarios" feature
     Then the file "features/generated_features/P123456/suppress_empty_scenarios.cw.feature" should contain exactly:
       """
       @cuke_writer
@@ -99,7 +92,7 @@ Feature: features with simple, straightforward scenarios
       end
 
       """
-    When I run "cucumber features/suppress_empty_features.feature --format Cucumber::Formatter::CukeWriter --out cuke_writer.txt --format progress"
+    When I run the "suppress_empty_scenarios" feature
     Then the following files should not exist:
       | features/supress_empty_features.feature |
 
