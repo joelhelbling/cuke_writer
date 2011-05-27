@@ -1,6 +1,8 @@
 CukeWriter
 ==========
 
+[![Build Status](http://Travis-ci.org/joelhelbling/cuke_writer.png)](http://Travis-ci.org/joelhelbling/cuke_writer)
+
 What is it?
 -----------
 
