@@ -27,8 +27,8 @@ Feature: Here is a feature (let's call him "Bob") who uses aruba
 
       """
     When I run the "bobs_end_to_end" feature
-    And I run "cucumber features/generated_features/P123456/bobs_end_to_end.cw.feature --no-color --no-source -r features/"
-    Then it should pass with: 
+    And I run `cucumber features/generated_features/P123456/bobs_end_to_end.cw.feature --no-color --no-source -r features/`
+    Then it should pass with:
       """
       1 scenario (1 passed)
       1 step (1 passed)
