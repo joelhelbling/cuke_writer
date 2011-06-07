@@ -3,3 +3,4 @@ tmp
 Gemfile.lock
 .bundle
 cucumber.yml
+.rspec
