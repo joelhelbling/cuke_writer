@@ -13,5 +13,5 @@ EOF
 end
 
 When /^I run the "([^"]*)" feature$/ do |feature_name|
-    When "I run \"cucumber features/#{feature_name}.feature -f Cucumber::Formatter::CukeWriter -o cuke_writer.txt -f progress\""
+    When "I run \`cucumber features/#{feature_name}.feature -f Cucumber::Formatter::CukeWriter -o cuke_writer.txt -f progress\`"
 end
