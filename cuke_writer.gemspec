@@ -9,11 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Joel Helbling"]
   s.email       = ["joel@joelhelbling.com"]
   s.homepage    = "http://github.com/joelhelbling/cuke_writer"
-  s.summary     = %q{A custom Cucumber formatter which generates serialized sets of Cucumber features.}
-  s.description = <<-EOF
-CukeWriter basically creates features and scenarios which correspond directly
-to the features and scenarios that generated them.
-  EOF
+  s.summary     = %q{A Cucumber formatter which writes Cucumber features.}
+  s.description = %q{A custom Cucumber formatter which collects steps and generates serialized sets of Cucumber features. Meta FTW!}
 
   s.rubyforge_project = "cuke_writer"
 

@@ -7,14 +7,16 @@ CukeWriter
 What is it?
 -----------
 
-CukeWriter is a custom Cucumber formatter which generates serialized sets of Cucumber features.
+CukeWriter is a custom Cucumber formatter which collects steps and generates
+serialized sets of Cucumber features.
 
 To use it:
 
     cucumber --format CukeWriter::Formatter features
 
-CukeWriter basically creates features and scenarios which correspond directly to the features
-and scenarios that generated them.  You'll need to instantiate a step collector:
+CukeWriter basically creates features and scenarios which correspond directly
+to the features and scenarios that generated them.  You'll need to instantiate
+a step collector:
 
     @step_collector = StepCollector.new
 
