@@ -11,7 +11,7 @@ CukeWriter is a custom Cucumber formatter which generates serialized sets of Cuc
 
 To use it:
 
-    cucumber --format Cucumber::Formatter::CukeWriter features
+    cucumber --format CukeWriter::Formatter features
 
 CukeWriter basically creates features and scenarios which correspond directly to the features
 and scenarios that generated them.  You'll need to instantiate a step collector:

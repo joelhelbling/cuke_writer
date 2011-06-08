@@ -6,11 +6,14 @@ Gem::Specification.new do |s|
   s.name        = "cuke_writer"
   s.version     = CukeWriter::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.authors     = ["Joel Helbling"]
+  s.email       = ["joel@joelhelbling.com"]
+  s.homepage    = "http://github.com/joelhelbling/cuke_writer"
+  s.summary     = %q{A custom Cucumber formatter which generates serialized sets of Cucumber features.}
+  s.description = <<-EOF
+CukeWriter basically creates features and scenarios which correspond directly
+to the features and scenarios that generated them.
+  EOF
 
   s.rubyforge_project = "cuke_writer"
 
