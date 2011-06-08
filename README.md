@@ -218,5 +218,5 @@ Here's a nice, shallow backlog:
      the @cw tag (unluss cucumber.yml already does so).
  *   Generate a nice new rake task for each serialized batch of generated features.
  *   Create a nice rake task which cleans up old batches of generated features.
- *   Turn CukeWriter into a gem.
+ *   _Turn CukeWriter into a gem_ ...[DONE]
 
