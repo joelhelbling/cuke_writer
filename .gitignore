@@ -1,6 +1,20 @@
+# Aruba artifacts
 tmp
+
+# Editors and tools and such
 .idea
-Gemfile.lock
-.bundle
+.redcar
+.project
+*~
+*.swp
+
+# Testing settings
 cucumber.yml
 .rspec
+
+# Added by bundler for the gem
+*.gem
+.bundle
+Gemfile.lock
+pkg/*
+

@@ -1,0 +1,3 @@
+module CukeWriter
+  # Your code goes here...
+end
