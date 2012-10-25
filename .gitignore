@@ -2,6 +2,7 @@
 tmp
 
 # Editors and tools and such
+.rvmrc
 .idea
 .redcar
 .project
